@@ -5,14 +5,14 @@ import ftplib
 import tqdm
 import re
 
-path = 'C:/Users/Stavros/OneDrive - University of Patras/Mic_Cam_data_ftp'
+path = 'folder path'
 
 df_mic = pd.read_csv(path+'/Mic_cor_data/Patras_2021-04-12_2023-05-30_filtered.csv', parse_dates=True, index_col="datetime")
 
 path_ftp = '/cams/All-Sky/lapup/'
 nearest_imgs = []
 for idx in tqdm.tqdm(df_mic.index):
-    ftp = ftplib.FTP("150.140.194.29","researcher", "4vkGqU5FNYmZBE8")
+    ftp = ftplib.FTP("IP","USERNAME", "PASSWORD")
 
     date_mic = idx.strftime("%Y/%m/%d %H:%M:%S")
     dates = date_mic.split(' ')
