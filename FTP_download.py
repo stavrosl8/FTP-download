@@ -37,12 +37,12 @@ def Finding_the_path (date_idx):
         flag = "Month is missing"
     return(flag_data, flag, img_list)
 
-path = 'C:/Users/Stavros/OneDrive - University of Patras/Mic_Cam_data_ftp'
-df_mic = pd.read_csv(path+'/Mic_cor_data/Patras_2021-04-12_2023-05-30_filtered.csv', parse_dates=True, index_col="datetime")
+path = 'working path'
+df_mic = pd.read_csv(path+'...data path', parse_dates=True, index_col="datetime")
 path_ftp = '/cams/All-Sky/lapup/'
 nearest_imgs = []
 for idx in tqdm.tqdm(df_mic.index):    
-    ftp = ftplib.FTP("150.140.194.29","researcher", "4vkGqU5FNYmZBE8")
+    ftp = ftplib.FTP("IP","Username", "Password")
     date_mic = idx.strftime("%Y/%m/%d %H:%M:%S") 
     flag_data, flag_info, img_list = Finding_the_path (date_mic)       
     if (flag_data == True):  
